@@ -1,5 +1,9 @@
 let a = "";
 let b = "";
+let c = "";
+let sa = "+";
+let sb = "+";
+let sc = "+";
 let valor = "";
 let executar = "";
 let temPonto = false;
@@ -11,6 +15,8 @@ div = (a,b) => Number(a) / Number(b);
 raiz = a => Math.sqrt(a);
 equacao2Grau = (a,b,c) =>{
     let delta = sub(mult(b,b),mult(4,mult(a,c)));
+    document.getElementById("delta").innerHTML = delta;
+
     if (delta < 0) return "Não possui raiz Real.";
     if (delta == 0) return "x1 = x2 = " + div(-b,mult(2,a));
     return "x1 = " + div(soma(-b,raiz(delta)),mult(2,a)) + 
@@ -87,4 +93,38 @@ function digitando(tecla){
    }
    valor = valor + tecla;
    mostrar_resultado();
+}
+
+const calcular_equacao = ()=>{
+    if(a != "" && a != "0"){
+        if(a != "+") {a = -(Number(a))} else {a=Number(a)};
+        if(b != "+") {b = -(Number(b))} else {b=Number(b)};
+        if(c != "+") {c = -(Number(c))} else {c=Number(c)};
+        document.getElementById("raiz").innerHTML = equacao2Grau(a,b,c);
+    }
+}
+
+const set_sinal_a = () =>{
+    sa = document.getElementById("sinal_a").value;
+    calcular_equacao();
+}
+const set_sinal_b = () =>{
+    sb = document.getElementById("sinal_b").value;
+    calcular_equacao();
+}
+const set_sinal_c = () =>{
+    sc = document.getElementById("sinal_c").value;
+    calcular_equacao();
+}
+const set_valor_a = () =>{
+    a = document.getElementById("valor_a").value;
+    calcular_equacao();
+}
+const set_valor_b = () =>{
+    b = document.getElementById("valor_b").value;
+    calcular_equacao();
+}
+const set_valor_c = () =>{
+    c = document.getElementById("valor_c").value;
+    calcular_equacao();
 }
