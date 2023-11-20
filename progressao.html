@@ -27,5 +27,19 @@
 
     </section>
     
+    <section id="pg">
+        <h1>Progressão Geométrica</h1>
+        P.G.: a<sub>1</sub>,a<sub>2</sub>,a<sub>2</sub>,...a<sub>n</sub><br>
+        Calculo da razão: q = a<sub>2</sub> / a<sub>1</sub> <br>
+        Calculo do último termo (n): a<sub>n</sub> = a<sub>1</sub> . q<sub>(n-1)</sub> <br>
+        Soma de n termos: S<sub>n</sub> = (a<sub>1</sub>(q<sup>n</sup> . 1))/(q-1);
+
+        <div class="calculoPG">
+            a<sub>1</sub>: <input onchange="setpa_a1()" type="number" id="pa_al"><br>
+            r =  <input onchange="setpa_r()" type="number" id="pa_r"><br>
+            n =  <input onchange="setpa_n()" type="number" id="pa_n"><br>
+            Sequencia: <span id="pg_seq"></span>
+        </div>
+    </section>
 </body>
 </html>

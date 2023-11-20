@@ -146,14 +146,14 @@ const set_valor_c = () => {
     c = document.getElementById("valor_c").value;
     calcular_equacao();
 }
-let pa_al = "";
+let pa_a1 = "";
 let pa_r = "";
 let pa_n = "";
 const setpa_a1 = () =>{
-    pa_al = Number(document.getElementById("pa_al").value);
+    pa_a1 = Number(document.getElementById("pa_a1").value);
     mostrarpa_seq();
 }
-const setpa_n = () =>{
+const setpa_n = ()=> {
     pa_n = Number(document.getElementById("pa_n").value);
     mostrarpa_seq();
 }
@@ -162,12 +162,18 @@ const setpa_r = () =>{
     mostrarpa_seq();
 }
 const mostrarpa_seq = () => {
-    let pa = "";
-    if(pa_al != "") pa += pa_al;
-    if(pa_r != "" && pa_n != ""){
-        for(let i = 1; i <= pa_n; i++){
-            pa += " , " + (i * pa_r ) + Number(pa_al);
+    let pa = pa_al;
+    let ntermos = 1;
+    if(pa_r != "" && pa_n != "" && pa_a1 != "" && ){
+        for(let i = 1; i < pa_n; i++){
+            if(ntermos < 4){
+                pa += ", " + (Number(pa_a1) + (i*pa_r));
+                ntermos++;
+            }
         }
-    } 
+    }
+    if( pa_n > 3){
+        pa += ", ... ," + (Number(pa_a1) + (pa_n - 1) + pa_r);
+    }
     document.getElementById("pa_seq").innerHTML = pa;
 }
