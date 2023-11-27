@@ -162,18 +162,28 @@ const setpa_r = () =>{
     mostrarpa_seq();
 }
 const mostrarpa_seq = () => {
-    let pa = pa_al;
+    let pa = pa_a1;
     let ntermos = 1;
-    if(pa_r != "" && pa_n != "" && pa_a1 != "" && ){
+    if(pa_r != "" && pa_n != "" && pa_a1 != "" && pa_n > 0){
         for(let i = 1; i < pa_n; i++){
             if(ntermos < 4){
-                pa += ", " + (Number(pa_a1) + (i*pa_r));
-                ntermos++;
+              pa += ", " + (Number(pa_a1) + (i*pa_r));
+              ntermos++;
             }
         }
     }
     if( pa_n > 3){
-        pa += ", ... ," + (Number(pa_a1) + (pa_n - 1) + pa_r);
+        pa += ", ... , " + (Number(pa_a1) + (pa_n - 1) * pa_r);
     }
     document.getElementById("pa_seq").innerHTML = pa;
 }
+let num = 0;
+const trocar_imagem = () => {
+    num++;
+    setTimeout(() =>{
+        document.getElementById("fig1").src = "./imgem/img"+num+".jpg";
+        if(num == 3) num = 0;
+        trocar_imagem();
+    },1000);  
+}
+trocar_imagem();
